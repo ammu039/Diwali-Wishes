@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Diwali Wishes</title>
+    <style>
+        /* Basic styling for the page */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f8e8a0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 3;
+            transition: opacity 0.5s;
+            width: 300px;
+        }
+        h1 {
+            color: #d4af37;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #d4af37;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #b69330;
+        }
+        /* Styles for the greeting message */
+.greeting {
+    display: none;
+    font-size: 1.5em;
+    color: #f8e8a0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(255, 223, 0, 0.4);
+    border: 2px solid #d4af37;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    max-width: 80%;
+    text-align: center;
+}
+
+/* Text styling */
+.greeting strong {
+    color: #ffd700; /* Gold color for emphasis */
+    font-size: 1.7em;
+    text-shadow: 0px 0px 8px rgba(255, 215, 0, 0.6);
+}
+
+.greeting p {
+    color: #ffffff;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+        /* Video backgrounds */
+        .video-background, .input-video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .input-video-background {
+            z-index: 2;
+            opacity: 1; /* Visible by default for the input screen */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Input video background -->
+<video autoplay muted loop class="input-video-background">
+    <source src="Purple Gradient Festive Happy Diwali Greeting Facebook Post.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<div class="container" id="inputContainer">
+    <h1>Happy Diwali Wishes</h1>
+    <p>Enter your name and wish on Diwali</p>
+    
+    <!-- Input fields -->
+    <input type="text" id="name" placeholder="Enter your name">
+    <textarea id="wish" placeholder="Enter your Diwali wish"></textarea>
+    <button onclick="generateWish()">Generate Wish</button>
+</div>
+
+<!-- Personalized greeting display -->
+<div class="greeting" id="greeting"></div>
+
+<!-- Main background video -->
+<video autoplay muted loop id="videoBackground" class="video-background">
+    <source src="Yellow Black Minimal Diwali Festival Greetings Mobile Video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<script>
+    // Function to generate and display the personalized Diwali greeting
+    function generateWish() {
+        const name = document.getElementById("name").value;
+        const wish = document.getElementById("wish").value;
+
+        if (name && wish) {
+            const greeting = document.getElementById("greeting");
+            greeting.innerHTML = `<strong>Happy Diwali, ${name}!</strong><br>Wishing you and your family a joyous and blessed Diwali celebration. May all your dreams and wishes come true this year!${wish} `;
+            greeting.style.display = "block";
+
+            // Hide the input container
+            const inputContainer = document.getElementById("inputContainer");
+            inputContainer.style.opacity = "0";
+
+            // Show main background video and hide the input video
+            const videoBackground = document.getElementById("videoBackground");
+            const inputVideoBackground = document.querySelector('.input-video-background');
+            videoBackground.style.opacity = "1";
+            inputVideoBackground.style.opacity = "0";
+        } else {
+            alert("Please enter both your name and a wish!");
+        }
+    }
+</script>
+
+</body>
+</html>
